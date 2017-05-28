@@ -28,5 +28,11 @@ class EventServiceProvider extends ServiceProvider
         parent::boot();
 
         //
+        Event::listen('revisionable.*', function($model, $revisions) {
+            // Do something with the revisions or the changed model. 
+            dd($model, $revisions);
+            die($revisions);
+            $model =null;
+        });
     }
 }
